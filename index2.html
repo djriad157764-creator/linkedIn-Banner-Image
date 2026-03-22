@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Premium LinkedIn Banner | MD Riad Shekh</title>
+
+    <!-- Tailwind CSS v3 (Stable) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- DaisyUI v4 (Stable - Compatible with Tailwind v3) -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.css" rel="stylesheet" type="text/css" />
+    
+    <!-- Tailwind Config for DaisyUI -->
+    <script>
+      tailwind.config = {
+        plugins: [require('daisyui')],
+        daisyui: {
+          themes: ["dark"],
+        }
+      }
+    </script>
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap"
+      rel="stylesheet"
+    />
+    
+    <!-- Font Awesome 6 -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+
+    <style>
+      body {
+        margin: 0;
+        /* background: #000; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        font-family: "Inter", sans-serif;
+        padding: 20px;
+      }
+
+      /* Banner Container */
+      .banner {
+        width: 1585px;
+        height: 396px;
+        position: relative;
+        overflow: hidden;
+        border-radius: 24px;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      }
+
+      /* Background Image */
+      .banner::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("./banner.jpg") center/cover no-repeat;
+        background-size: 130%;
+        filter: brightness(0.7) contrast(1.2);
+        z-index: 0;
+      }
+
+      /* Gradient Overlay */
+      .banner::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        /* background: linear-gradient(90deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%); */
+        z-index: 1;
+      }
+
+      /* Glass Card Effect */
+      .glass-card {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(6px);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 28px;
+        position: relative;
+        z-index: 2;
+      }
+
+      /* 3D TEXT EFFECT */
+      .text-3d {
+        color: #ffff;
+        text-shadow:
+          0 2px 0 #0ea5e9,
+          0 4px 10px rgba(0, 0, 0, 0.8),
+          0 0 20px rgba(56, 189, 248, 0.6);
+      }
+
+      /* Neon Glow */
+      .neon {
+        text-shadow: 0 0 8px #38bdf8, 0 0 20px #38bdf8;
+      }
+
+      /* Avatar Ring Animation */
+      .avatar-ring {
+        background: linear-gradient(135deg, #38bdf8, #a855f7, #ec489a);
+        border-radius: 50%;
+        padding: 4px;
+        /* animation: rotateRing 4s linear infinite; */
+        position: relative;
+        z-index: 2;
+        
+        box-shadow: 0 0 20px blue;
+      }
+      
+       @keyframes rotateRing {
+        0% { transform: rotate(0deg); }
+        25% { transform: rotate(-70deg); }
+        50% { transform: rotate(0deg); }
+        75% { transform: rotate(40deg); }
+        100% { transform: rotate(0deg); }
+      } 
+      
+      .avatar-inner {
+        width: 280px;
+        height: 280px;
+        border-radius: 50%;
+        overflow: hidden;
+        background: #1e1b4b;
+      
+        box-shadow: 0 0 30px blue;
+      }
+      
+      .avatar-inner img {
+        width: 100%;
+        height: 100%;
+       box-shadow: 0 0 50px white;
+        
+        object-fit: cover;
+      }
+
+      /* Icon Hover Effect */
+      .social-icon {
+        transition: all 0.3s ease;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .social-icon:hover {
+        color: #38bdf8 !important;
+        transform: translateY(-3px);
+      }
+      
+      /* Skill Badge Hover */
+      .skill-badge {
+        transition: all 0.2s ease;
+      }
+      
+      .skill-badge:hover {
+        transform: translateY(-2px);
+        background: rgba(56, 189, 248, 0.2);
+        border-color: #38bdf8;
+      }
+      
+      /* Contact Items */
+      .contact-item {
+        transition: all 0.2s ease;
+      }
+      
+      .contact-item:hover {
+        transform: translateX(5px);
+      }
+    </style>
+  </head>
+
+  <body onclick="Professional()">
+    <div class="banner flex items-center justify-between px-16">
+      
+      <!-- ✅ LEFT SIDE: Avatar Image -->
+      <div class="avatar-ring">
+        <div class="p-2 bg-white rounded-full ">
+            <div class="avatar-inner">
+          <img src="./riad.png" alt="MD Riad Shekh" />
+        </div>
+        </div>
+      </div>
+
+      <!-- ✅ RIGHT SIDE: Content -->
+      <div class="glass-card px-8 py-4 max-w-4xl">
+        
+        <!-- Name -->
+        <h1 class="text-5xl font-extrabold text-3d  tracking-tight">
+          MD Riad Shekh
+        </h1>
+
+        <!-- Title with Badge -->
+        <div class="flex items-center gap-3 mt-2">
+          <h2 class="text-3xl font-bold text-cyan-400 ">
+            Frontend Web Developer
+          </h2>
+          <div class="badge badge-primary  gap-1">
+            <i class="fas fa-code text-xl"></i>
+            Expert
+          </div>
+        </div>
+
+        <!-- Description -->
+        <p class="text-gray-200 mt-3 text-xl leading-relaxed">
+          Building Responsive UI & Transforming Ideas into Interactive Web Experiences
+        </p>
+
+        <!-- ✅ SKILLS SECTION - Now properly spaced -->
+        <div class="flex flex-wrap gap-2 mt-4">
+          <!-- HTML5 -->
+          <div class="badge badge-lg badge-outline badge-primary gap-2 skill-badge cursor-pointer text-xl font-semibold px-5 py-4">
+            <i class="fab fa-html5 text-orange-400 "></i>
+            <span class="">HTML5</span>
+          </div>
+          
+          <!-- CSS3 -->
+          <div class="badge badge-lg badge-outline badge-secondary gap-2 skill-badge cursor-pointer text-xl font-semibold px-5 py-4">
+            <i class="fab fa-css3-alt text-blue-400 "></i>
+            <span class="">CSS3</span>
+          </div>
+          
+          <!-- JavaScript -->
+          <div class="badge badge-lg badge-outline badge-accent gap-2 skill-badge cursor-pointer text-xl font-semibold px-5 py-4">
+            <i class="fab fa-js text-yellow-300 "></i>
+            <span class="">JavaScript</span>
+          </div>
+          
+          <!-- Tailwind CSS -->
+          <div class="badge badge-lg badge-outline badge-info gap-2 skill-badge cursor-pointer text-xl font-semibold px-5 py-4">
+            <i class="fab fa-tailwind text-cyan-400 "></i>
+            <span class="">Tailwind CSS</span>
+          </div>
+          
+          <!-- DaisyUI -->
+          <div class="badge badge-lg badge-outline  badge-success gap-2 skill-badge cursor-pointer text-xl font-semibold px-5 py-4">
+            <i class="fas fa-palette text-pink-400 "></i>
+            <span class="">DaisyUI</span>
+          </div>
+        </div>
+
+        <!-- ✅ CONTACT SECTION - Now properly spaced and aligned -->
+        <div class="mt-5 flex justify-between  space-y-2">
+          <div class="text-2xl">
+            <div class="contact-item flex items-center gap-3 text-gray-200 ">
+            <i class="fas fa-envelope text-cyan-400 w-5"></i>
+            <span>mdriadshekh586@gmail.com</span>
+            <button class="btn btn-xs btn-ghost btn-circle" onclick="copyToClipboard('mdriadshekh586@gmail.com')">
+              <i class="fas fa-copy text-gray-400 text-xs"></i>
+            </button>
+          </div>
+          
+          <div class="contact-item flex text-2xl items-center gap-3 text-gray-200 ">
+            <i class="fas fa-phone-alt text-cyan-400 w-5"></i>
+            <span>+8801314674108</span>
+          </div>
+          </div>
+          <div class="flex gap-5 mt-5  pt-3 border-t border-white/20">
+          <a href="#" class="social-icon text-gray-400 text-4xl">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="#" class="social-icon text-gray-400 text-4xl">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="#" class="social-icon text-gray-400 text-4xl">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="social-icon text-gray-400 text-4xl">
+            <i class="fab fa-facebook"></i>
+          </a>
+          <a href="#" class="social-icon text-gray-400 text-4xl">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+        </div>
+
+        <!-- ✅ SOCIAL ICONS SECTION - Now properly spaced and aligned (এখন আলাদা হবে) --> 
+        
+        
+        <!-- Optional: Divider with Stats -->
+         <div class="divider divider-primary divider-xs mt-3"></div>
+        
+        <div class="flex justify-between items-center mt-1">
+          <div class="text-xl text-gray-500 flex items-center gap-2">
+            <i class="fas fa-shield-alt text-cyan-400 text-xl"></i>
+            <span>Professional Frontend Developer</span>
+          </div>
+          <div class="flex gap-3 text-xl text-gray-500">
+            <span><i class="fas fa-code text-cyan-400"></i> 20+ Projects</span>
+            <span><i class="fas fa-clock text-cyan-400"></i> 3+ Years</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <script>
+         const Professional =()=> {
+        window.location.assign("./index.html")
+      }
+      // Copy to clipboard function
+      function copyToClipboard(text) {
+        navigator.clipboard.writeText(text);
+        // Optional: Show a toast notification
+        alert('Email copied to clipboard!');
+      }
+    </script>
+  </body>
+</html>
